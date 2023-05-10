@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'form1';
+  topics=['Angular ','React', 'Vue'];
 }
