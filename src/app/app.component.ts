@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { User } from './user';
 import { EnrollementService } from './enrollement.service';
+import * as alertyfy from "alertifyjs"
+
 
 @Component({
   selector: 'app-root',
@@ -29,14 +31,22 @@ export class AppComponent {
   }
   onSubmit() {
     this.submitted = true
+    // alertyfy.success("congrulation you are sucess")
     this._enrollementService.enroll(this.userModel)
       .subscribe({
         next: (data: any) => {
           console.log('success', data);
+          alertyfy.sucess("congrulation you are sucess");
         },
-        error: (error: any) => this.errorMsg = error.statusText
+        error: (error: any) => {
 
-      });
+          // this.errorMsg = error.statusText
+          alertyfy.error("Error Message");
+        }
+
+      }
+
+      );
   }
 
 }
