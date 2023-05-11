@@ -1,6 +1,15 @@
 <div class="container-fluid">
+  <div class="alert alert-danger" *ngIf="errorMsg">
+    {{ errorMsg }}
+  </div>
   <h1>Form</h1>
-  <form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+  <form
+    #userForm="ngForm"
+    *ngIf="!submitted"
+    (ngSubmit)="onSubmit()"
+    novalidate
+  >
+    <!-- novalidate -->
     {{ userForm.form.valid }}
 
     <!-- {{ userForm.value | json }}
